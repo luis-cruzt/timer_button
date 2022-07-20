@@ -99,6 +99,11 @@ class _TimerButtonState extends State<TimerButton> {
         timeUpFlag = true;
     });
   }
+  
+  dispose() {
+    super.dispose();
+    timer.cancel();
+  }
 
   Widget _buildChild() {
     TextStyle? activeTextStyle;
