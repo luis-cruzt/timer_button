@@ -76,7 +76,8 @@ class TimerButton extends StatefulWidget {
 class _TimerButtonState extends State<TimerButton> {
   bool timeUpFlag = false;
   int timeCounter = 0;
-
+  late Timer timer;
+  
   String get _timerText => '$timeCounter${widget.secPostFix}';
 
   @override
@@ -88,7 +89,7 @@ class _TimerButtonState extends State<TimerButton> {
 
    _timerUpdate() {
     if (!mounted) return;
-    Timer(const Duration(seconds: aSec), () {
+     timer = Timer(const Duration(seconds: aSec), () {
       setState(() {
         timeCounter--;
       });
